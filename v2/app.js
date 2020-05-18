@@ -1,32 +1,32 @@
-import express, { static } from "express";
-const app = express();
-import request from "request";
-import { urlencoded } from "body-parser";
-import { connect, Schema, model } from "mongoose";
+const express    = require("express"),
+	  app        = express(),
+      request    = require("request"),
+      bodyParser = require("body-parser"),
+      mongoose   = require("mongoose");
 
 
 
 app.set("view engine", "ejs");
-app.use(static("public"));
-app.use(urlencoded({extended: true}));
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
 //Create yelp_camp database inside of MongoDB
-connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://localhost/yelp_camp");
 
 
 
 //Set-up Schema
-var campgroundSchema = new Schema({
+var campgroundSchema = new mongoose.Schema({
    name: String,
    image: String,
 });
 
 //Compile Schema into a model to access methods
-var Campground = model("Campground", campgroundSchema);
+var Campground = mongoose.model("Campground", campgroundSchema);
 
 // Campground.create(
 // {
-// 	name: "Pennsylvania Site 7",
-// 	image: "https://img.hipcamp.com/image/upload/c_limit,f_auto,h_630,q_60,w_1200/v1470118754/campground-photos/nww9bs0esrmzyok92jgf.jpg"
+// 	name: "Camp Kinderland Inc",
+// 	image: "https://i.pinimg.com/originals/39/3f/5a/393f5a20d7ec52f36901aaecf57320ba.jpg"
 
 // },function(err, campground){
 
@@ -80,8 +80,11 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 
+
+
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
-  console.log("YelpCamp Server Has Started!");
+	console.log("YelpCamp Server Has Started!");
 });

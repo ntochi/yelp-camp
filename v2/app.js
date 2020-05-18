@@ -1,27 +1,27 @@
-const express    = require("express"),
-	  app        = express(),
-	  request    = require("request"),
-      bodyParser = require("body-parser"),
-      mongoose   = require("mongoose");
+import express, { static } from "express";
+const app = express();
+import request from "request";
+import { urlencoded } from "body-parser";
+import { connect, Schema, model } from "mongoose";
 
 
 
 app.set("view engine", "ejs");
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(static("public"));
+app.use(urlencoded({extended: true}));
 //Create yelp_camp database inside of MongoDB
-mongoose.connect("mongodb://localhost/yelp_camp");
+connect("mongodb://localhost/yelp_camp");
 
 
 
 //Set-up Schema
-var campgroundSchema = new mongoose.Schema({
+var campgroundSchema = new Schema({
    name: String,
    image: String,
 });
 
 //Compile Schema into a model to access methods
-var Campground = mongoose.model("Campground", campgroundSchema);
+var Campground = model("Campground", campgroundSchema);
 
 // Campground.create(
 // {

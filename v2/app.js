@@ -1,5 +1,6 @@
 const express    = require("express"),
 	  app        = express(),
+	  request    = require("request"),
       bodyParser = require("body-parser"),
       mongoose   = require("mongoose");
 
@@ -24,8 +25,8 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 
 // Campground.create(
 // {
-// 	name: "Camp Kinderland Inc",
-// 	image: "https://i.pinimg.com/originals/39/3f/5a/393f5a20d7ec52f36901aaecf57320ba.jpg"
+// 	name: "Pennsylvania Site 7",
+// 	image: "https://img.hipcamp.com/image/upload/c_limit,f_auto,h_630,q_60,w_1200/v1470118754/campground-photos/nww9bs0esrmzyok92jgf.jpg"
 
 // },function(err, campground){
 
@@ -79,9 +80,8 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 
+const port = process.env.PORT || 3000;
 
-
-
-app.listen(3000, function() { 
-  console.log('YelpCamp Server Has Started!'); 
+app.listen(port, function () {
+  console.log("YelpCamp Server Has Started!");
 });

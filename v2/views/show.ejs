@@ -1,1 +1,17 @@
-<h1>This is the Show Template</h1>
+<%- include('partials/header') %>
+
+<h1><%= campground.name %></h1>
+
+<div class="col-md-6">
+    <div class="img-thumbnail">
+        <img src="<%= campground.image %>">
+    </div>
+</div>
+
+<p>
+    <%= campground.description %>
+</p>
+
+
+
+<%- include('partials/footer') %>

@@ -1,11 +1,16 @@
 img {
     display: block;
     max-width: 100%;
-    height: auto;
+    height: 300px;
 }
   
 .form {
     width: 30%;
+}
+
+.img-thumbnail {
+    border: 0 none;
+    box-shadow: none;
 }
   
   

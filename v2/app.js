@@ -1,29 +1,17 @@
-const express = require("express"),
-	app = express(),
-	request = require("request"),
-	bodyParser = require("body-parser"),
-	mongoose = require("mongoose");
+//App Config
+const Campground = require("./models/campground"),
+	  bodyParser = require("body-parser"),
+	  mongoose = require("mongoose"),
+	  express = require("express"),
+	  app = express()
 
-
+	  
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-//Create yelp_camp database inside of MongoDB
 mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true });
 
-
-
-
-//Set-up Schema
-var campgroundSchema = new mongoose.Schema({
-	name: String,
-	image: String,
-	description: String
-});
-
-//Compile Schema into a model to access methods
-var Campground = mongoose.model("Campground", campgroundSchema);
 
 // Campground.create(
 // {
@@ -58,30 +46,29 @@ app.get("/campgrounds", function (req, res) {
 	});
 });
 
+//NEW- show form to create campground
+app.get("/campgrounds/new", function (req, res) {
+	//Show form to post new campgrounds
+	res.render("new");
+});
+
 //CREATE- add new campground to database
-//Post request & logic of form which redirects to /campgrounds
+//Post request & logic of form which then redirects to /campgrounds
 app.post("/campgrounds", function (req, res) {
-	//Get data from form & add to campgrounds array
-	//req.body.xxx; represents the name attribute in the form
+	//Get data from form & save to database
+	//req.body.xxx; represents using the name attribute in form to send data to the server
 	const name = req.body.name;
 	const image = req.body.image;
 	const desc = req.body.description;
 	const newCampground = { name: name, image: image, description: desc};
-	//Create a new campground & save to database
+
 	Campground.create(newCampground, function (err, newlyCreated) {
 		if (err) {
 			console.log(err);
 		} else {
-			//Redirect back to campgrounds page
 			res.redirect("/campgrounds");
 		}
 	});
-});
-
-//NEW- show form to create campground
-app.get("/campgrounds/new", function (req, res) {
-	//Show form to post new campgrounds
-	res.render("new", { campground: Campground });
 });
 
 //SHOW- shows more info about one campground
@@ -101,6 +88,6 @@ app.get("/campgrounds/:id", function (req, res){
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, function () {
+app.listen(port, function(){
 	console.log("YelpCamp Server Has Started!");
 });

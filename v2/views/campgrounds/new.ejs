@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
 
 <div class="container">
 		<h1 class="text-center">Create New Campground</h1>
@@ -6,15 +6,15 @@
 		<div class="form mx-auto my-5">
 			<form action="/campgrounds" method="POST">
 				<div class="form-group">
-					<input class="form-control" type="text" placeholder="Camp name" name="name">
+					<input class="form-control" type="text" placeholder="Camp name" name="campground[name]">
 				</div>
 
 				<div class="form-group">
-					<input class="form-control" type="text" placeholder="Image url" name="image">
+					<input class="form-control" type="text" placeholder="Image url" name="campground[image]">
 				</div>
 
 				<div class="form-group">
-					<input class="form-control" type="text" placeholder="Description" name="description">
+					<input class="form-control" type="text" placeholder="Description" name="camground[description]">
 				</div>
 
 				<div class="form-group">
@@ -26,4 +26,4 @@
 </div>
 
 
-<%- include('partials/footer') %>
+<%- include('../partials/footer') %>

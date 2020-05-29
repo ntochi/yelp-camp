@@ -1,1 +1,25 @@
-<h1>COMMENTS FORM</h1>
+<%- include('../partials/header') %>
+
+<div class="container">
+		<h1 class="text-center">Add Review to <%= campground.name %> </h1>
+	
+		<div class="form mx-auto my-5">
+            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                <div class="form-group">
+					<input class="form-control" type="text" placeholder="Full name" name="comment[author]">
+                </div>
+
+				<div class="form-group">
+                    <textarea class="form-control h-50" type="text" placeholder="How was your experience?" name="comment[text]"></textarea>
+				</div>
+                
+				<div class="form-group">
+					<button class="btn btn-success btn-block" type="submit">Submit comment</button>
+				</div>
+			</form>
+			<a href="/campgrounds">Go Back</a>
+		</div>
+</div>
+
+
+<%- include('../partials/footer') %>

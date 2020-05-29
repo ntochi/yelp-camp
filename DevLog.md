@@ -6,7 +6,7 @@
 
 
 ## What's Left To Do
-* Write README.md
-- explain in what you did and why.
+* Update README.md
+    - explain in detail what I did and why.
 * Style landing page
 

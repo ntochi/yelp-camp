@@ -7,17 +7,17 @@ const campgroundData = [
     {
         name: "Cider Valley",
         image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-        description: "Not just for the cider sweetness, also for relaxing"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla."
     },
     {
         name: "Mountain View",
         image: "https://blog-assets.thedyrt.com/uploads/2018/06/freecampingspot-2000x1120.jpg",
-        description: "Mount Everest camping experience"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla."
     },
     {
         name: "Sohill Spring",
         image: "https://inteng-storage.s3.amazonaws.com/img/iea/MRw4y5ABO1/sizes/camping-tech-trends_md.jpg",
-        description: "Don't pack water, come for the freshest of spring water"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla."
     }
 ]
 

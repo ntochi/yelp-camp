@@ -4,15 +4,16 @@ Campground 		 = require("./models/campground"),
 Comment 		 = require("./models/comment"),
 mongoose 		 = require("mongoose"),
 express          = require("express"),
-seedDB			 = require("./seeds"),
-app              = express();
+seedDB			 = require("./seeds");
 
-	 
-mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true })
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
-app.set("view engine", "ejs");
+
+// Middleware
+const app = express();
 seedDB();
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true });
 
 
 
@@ -36,14 +37,13 @@ app.get("/campgrounds", function (req, res) {
 
 //NEW- show form to create campground
 app.get("/campgrounds/new", function(req, res){
-	//Show form to post new campgrounds
 	res.render("campgrounds/new");
 });
 
 //CREATE- add new campground to database
 app.post("/campgrounds", function(req, res){
 	//Get data from form & save to database
-	Campground.create(req.body.campground, function(err, newCampground) {
+	Campground.create(req.body.campground, function(err, newCampground){
 		if (err) {
 			console.log(err);
 		} else {

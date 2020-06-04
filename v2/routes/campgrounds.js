@@ -24,7 +24,18 @@ router.get("/new", isLoggedIn, function(req, res){
 //CREATE- add new campground to database
 router.post("/", isLoggedIn, function(req, res){
 	//Get data from form & save to database
-	Campground.create(req.body.campground, function(err, newCampground){
+	const author = {
+		id: req.user._id,
+		username: req.user.username
+	}
+	const newCampground = {
+		name: req.body.campground.name,
+		image: req.body.campground.image,
+		description: req.body.campground.description,
+		author: author
+	}
+
+	Campground.create(newCampground, function(err, newlyCreated){
 		if (err) {
 			console.log(err);
 		} else {

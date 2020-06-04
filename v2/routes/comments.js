@@ -29,10 +29,13 @@ router.post("/", isLoggedIn, function (req, res){
 				if (err) {
 					console.log(err)
 				} else {
-					//Connect comment with campground
+					//Add id & username to comment, then save
+					comment.author.id = req.user._id;
+					comment.author.username = req.user.username;
+					comment.save();
+					//Add & save comment to campground, then redirect
 					foundCampground.comments.push(comment);
 					foundCampground.save();
-					//Redirect to show page
 					res.redirect("/campgrounds/" + foundCampground._id);
 				}
 			});

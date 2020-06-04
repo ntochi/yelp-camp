@@ -5,10 +5,6 @@
 	
 		<div class="form mx-auto my-5">
             <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
-                <div class="form-group">
-					<input class="form-control" type="text" placeholder="Full name" name="comment[author]">
-                </div>
-
 				<div class="form-group">
                     <textarea class="form-control h-50" type="text" placeholder="How was your experience?" name="comment[text]"></textarea>
 				</div>

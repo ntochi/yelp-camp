@@ -26,38 +26,38 @@ const campgroundData = [
 function seedDB(){
     //Remove all campgrounds & comments
     Campground.deleteMany({}, function(err){
-        // if(err){
-        //     console.log(err)
-        // } else {
-        //     console.log("removed campgrounds!");
-        //     Comment.deleteMany({}, function(err){
-        //       if (err) {
-        //         console.log(err);
-        //       } else {
-        //         console.log("removed comments!");
-        //         //Add a few campgrounds
-        //         campgroundData.forEach(seed => {
-        //             Campground.create(seed, function(err, campground){
-        //                 if (err) {
-        //                     console.log(err)
-        //                 } else {
-        //                     console.log("added a campground!")
-        //                     //Add a few comments
-        //                     Comment.create({text: "Absolutely splendid experience", author: "Jacob"}, function(err, comment){
-        //                         if (err) {
-        //                             console.log(err)
-        //                         } else {
-        //                             campground.comments.push(comment);
-        //                             campground.save();
-        //                             console.log("created new comment!");
-        //                         }
-        //                     });
-        //                 }
-        //             });
-        //         });
-        //       }  
-        //     })
-        // }
+        if(err){
+            console.log(err)
+        } else {
+            console.log("removed campgrounds!");
+            Comment.deleteMany({}, function(err){
+              if (err) {
+                console.log(err);
+              } else {
+                console.log("removed comments!");
+                //Add a few campgrounds
+                campgroundData.forEach(seed => {
+                    Campground.create(seed, function(err, campground){
+                        if (err) {
+                            console.log(err)
+                        } else {
+                            console.log("added a campground!")
+                            //Add a few comments
+                            Comment.create({text: "Absolutely splendid experience", author: "Jacob"}, function(err, comment){
+                                if (err) {
+                                    console.log(err)
+                                } else {
+                                    campground.comments.push(comment);
+                                    campground.save();
+                                    console.log("created new comment!");
+                                }
+                            });
+                        }
+                    });
+                });
+              }  
+            })
+        }
     });
 }
 

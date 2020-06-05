@@ -82,16 +82,26 @@ router.put("/:id", function (req, res){
 });
 
 //DESTROY- delete a particular campground, then redirect
-router.delete("/:id", function (req, res){
-	Campground.findByIdAndRemove(req.params.id, function(err){
-		if(err){
-			res.redirect("/campgrounds")
-		} else {
-			res.redirect("/campgrounds")
-		}
-	});
+router.delete("/:id", async(req, res) => {
+	try {
+	  let foundCampground = await Campground.findById(req.params.id);
+	  await foundCampground.remove();
+	  res.redirect("/campgrounds");
+	} catch (error) {
+	  console.log(error.message);
+	  res.redirect("/campgrounds");
+	}
 });
 
+// router.delete("/:id", function (req, res){
+// 	Campground.findByIdAndRemove(req.params.id, function(err){
+// 		if(err){
+// 			res.redirect("/campgrounds")
+// 		} else {
+// 			res.redirect("/campgrounds")
+// 		}
+// 	});
+// });
 
 
 //Middleware to check if user is logged in

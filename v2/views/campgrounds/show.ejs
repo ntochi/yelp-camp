@@ -11,6 +11,7 @@
                     <h4><a href="#"><%= campground.name %></a></h4>
                     <p><%= campground.description %></p>
                     <p class="font-italic">Submitted by <%= campground.author.username %></p>
+                    <a class="btn btn-warning btn-md" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
                 </div>    
             </div>
 

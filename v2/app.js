@@ -1,6 +1,7 @@
 //Import modules
 const passportLocalMongoose = require("passport-local-mongoose"),
 session                     = require('express-session'),
+methodOverride              = require("method-override"),
 LocalStrategy 	            = require("passport-local"),
 bodyParser                  = require("body-parser"),
 mongoose 	                = require("mongoose"),
@@ -25,8 +26,9 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true,
 // mongoose.set('debug', true);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
-// seedDB();
+seedDB();
 
 //Passport configuration
 app.use(session({ 

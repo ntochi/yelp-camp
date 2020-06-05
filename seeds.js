@@ -7,17 +7,29 @@ const campgroundData = [
     {
         name: "Cider Valley",
         image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla.",
+        author:{
+            id : "588c2e092403d111454fff76",
+            username: "Justin"
+        }
     },
     {
         name: "Mountain View",
         image: "https://blog-assets.thedyrt.com/uploads/2018/06/freecampingspot-2000x1120.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla.",
+        author:{
+            id : "588c2e092403d111454fff71",
+            username: "Mariah"
+        }
     },
     {
         name: "Sohill Spring",
         image: "https://inteng-storage.s3.amazonaws.com/img/iea/MRw4y5ABO1/sizes/camping-tech-trends_md.jpg",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla."
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac sem mi. Donec vel tincidunt dui. Vestibulum luctus sem sed lacus pellentesque tempus. Maecenas suscipit, turpis sit amet vestibulum posuere, orci tellus sollicitudin neque, vel viverra nulla metus quis eros. Quisque sed leo condimentum, molestie nisl et, tincidunt ligula. Pellentesque ac enim in lorem scelerisque hendrerit quis a dolor. Donec consequat augue et enim vulputate efficitur. Mauris accumsan purus vitae quam tincidunt, at bibendum leo viverra. Donec dolor risus, vestibulum fermentum sem sed, vulputate tincidunt nulla.",
+        author:{
+            id : "588c2e092403d111454fff77",
+            username: "Ada"
+        }
     }
 ]
 
@@ -43,7 +55,14 @@ function seedDB(){
                         } else {
                             console.log("added a campground!")
                             //Add a few comments
-                            Comment.create({text: "Absolutely splendid experience", author: "Jacob"}, function(err, comment){
+                            Comment.create(
+                                {
+                                    text: "Absolutely splendid experience", 
+                                    author:{
+                                        id : "588c2e092403d111454fff76",
+                                        username: "Mide"
+                                    }
+                                }, function(err, comment){
                                 if (err) {
                                     console.log(err)
                                 } else {

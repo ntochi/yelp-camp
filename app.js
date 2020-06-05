@@ -10,14 +10,14 @@ express                     = require("express"),
 app                         = express();
 
 
-const Campground       	    = require("./models/campground"),
-Comment 		            = require("./models/comment"),
-User                        = require("./models/user"),
-seedDB			            = require("./seeds");
+const Campground       	    = require("./v2/models/campground"),
+Comment 		            = require("./v2/models/comment"),
+User                        = require("./v2/models/user"),
+seedDB			            = require("./v2/seeds");
 
-const campgroundRoutes      = require("./routes/campgrounds"),
-	  commentRoutes         = require("./routes/comments"),
-	  indexRoutes           = require("./routes/index");
+const campgroundRoutes      = require("./v2/routes/campgrounds"),
+	  commentRoutes         = require("./v2/routes/comments"),
+	  indexRoutes           = require("./v2/routes/index");
  
 
 //Middleware configuration

@@ -11,12 +11,16 @@
                     <h4><a href="#"><%= campground.name %></a></h4>
                     <p><%= campground.description %></p>
                     <p class="font-italic">Submitted by <%= campground.author.username %></p>
-                    <!-- Edit button -->
-                    <a class="btn btn-warning btn-md text-light" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-                    <!-- Delete button -->
-                    <form class="d-inline" id="delete" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                        <input class="btn btn-danger btn-md" type="submit" value="Delete">
-                    </form>    
+                    
+                    <!-- Authorization to show/hide buttons -->
+                    <% if (currentUser && campground.author.id.equals(currentUser._id)) { %>
+                        <!-- Edit button -->
+                        <a class="btn btn-warning btn-md text-light" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                        <!-- Delete button -->
+                        <form class="d-inline" id="delete" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                            <input class="btn btn-danger btn-md" type="submit" value="Delete">
+                        </form>    
+                    <% } %>
                 </div>    
             </div>
 

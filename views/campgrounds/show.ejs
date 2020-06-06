@@ -4,6 +4,7 @@
     <div class="row mt-2">
         <div class="col-md-9">
             <div class="card">
+                <!-- campground -->
                 <img class="card-img-top img-fluid" src="<%= campground.image %>">
 
                 <div class="card-body">
@@ -25,17 +26,23 @@
             </div>
 
             <div class="card card-footer mt-3">
+                <!-- Comments -->
                 <div class="text-right">
                     <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Leave A Review</a>
                 </div>
                 <hr>  
-                      
                 <% campground.comments.forEach(comment => { %> 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mt-4">
                             <strong><%= comment.author.username %></strong>
                             <span class="float-right">10 days ago</span>
                             <p><%= comment.text %></p>
+                            <!-- Edit button -->
+                            <a class="btn btn-warning btn-sm mr-1 text-light" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                            <!-- Delete button -->
+                            <form class="d-inline" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <input class="btn btn-danger btn-sm" type="submit" value="Delete">
+                            </form>    
                         </div>
                     </div>
                 <% }); %>     

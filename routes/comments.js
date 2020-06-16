@@ -49,18 +49,13 @@ router.post("/", middleware.isLoggedIn, function (req, res){
 
 
 //Edit
-router.get("/:comment_id/edit", middleware.isLoggedIn, middleware.checkCommentOwnership, function(req, res){
-	Comment.findById(req.params.comment_id, function(err, foundComment){
-		if(err){
-			res.redirect("back");
-		} else {
-		  res.render("comments/edit", {campground_id: req.params.id, comment: foundComment});
-		}
-	});
+router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, res){
+	//render edit template with that comment
+	res.render("comments/edit", {campground_id: req.params.id, comment: req.comment});
 });
 
 //Update
-router.put("/:comment_id", middleware.isLoggedIn, middleware.checkCommentOwnership, function(req, res){
+router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
 		if(err){
 			res.redirect("back");

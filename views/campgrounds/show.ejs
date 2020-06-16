@@ -8,7 +8,7 @@
                 <img class="card-img-top img-fluid" src="<%= campground.image %>">
 
                 <div class="card-body">
-                    <h4 class="float-right">$9.00/night</h4>
+                    <h4 class="float-right">$<%= campground.price %>/night</h4>
                     <h4><a href="#"><%= campground.name %></a></h4>
                     <p><%= campground.description %></p>
                     <p class="font-italic">Submitted by <%= campground.author.username %></p>
@@ -20,15 +20,17 @@
                         <!-- Delete button -->
                         <form class="d-inline" id="delete" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                             <input class="btn btn-danger btn-md" type="submit" value="Delete">
-                        </form>    
+                        </form>  
                     <% } %>
+
+                    <a class="btn btn-outline-dark" href="/campgrounds"><i class="fa fa-arrow-left"></i>  Go back</a>
                 </div>    
             </div>
 
             <div class="card card-footer mt-3">
                 <!-- Comments -->
                 <div class="text-right">
-                    <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Leave A Review</a>
+                    <a class="btn btn-outline-info" href="/campgrounds/<%= campground._id %>/comments/new">Leave A Review</a>
                 </div>
                 <hr>  
                 <% campground.comments.forEach(comment => { %> 

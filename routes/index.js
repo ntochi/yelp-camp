@@ -15,15 +15,16 @@ router.get("/register", function(req, res){
 
 router.post("/register", function(req, res){
 	User.register(new User({username: req.body.username}), req.body.password, function(err, newUser){
-	   if(err){
+		if(err){
 		   req.flash("error", err.message);
 		   console.log(err);
 		   res.redirect("/register");
 		}
-	   passport.authenticate("local")(req, res, function(){
+
+		passport.authenticate("local")(req, res, function(){
 			req.flash("success", "Welcome to YelpCamp!")
 			res.redirect("/campgrounds");
-	   });
+	    });
    });
 });
 

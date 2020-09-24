@@ -6,14 +6,13 @@
 		<div class="form mx-auto my-5">
             <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
 				<div class="form-group">
-                    <textarea class="form-control h-50" type="text" placeholder="How was your experience?" name="comment[text]"></textarea>
+                    <textarea class="form-control" type="text" placeholder="How was your experience?" name="comment[text]"></textarea>
 				</div>
                 
 				<div class="form-group">
 					<button class="btn btn-success btn-block">Submit comment</button>
 				</div>
 			</form>
-			<a href="/campgrounds">Go Back</a>
 		</div>
 </div>
 

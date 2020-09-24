@@ -8,5 +8,15 @@ img {
     width: 30%;
 }
 
+.jumbotron{
+    border-radius: 2rem;
+}
+.inner{
+    background-color: aliceblue;
+    max-width: 20rem;
+    padding: 2rem;
+    margin: 0 auto;
+    border-radius: 3rem;
+}
 
   

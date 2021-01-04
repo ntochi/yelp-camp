@@ -13,7 +13,7 @@
 
 	<div class="row text-center">
 		<!-- Iterate through campground array -->
-		<% campground.forEach(function(campground){ %>
+		<% for (let campground of campgrounds) { %>
 			<div class="col-md-4 col-sm-6">
 				<div class="img-fluid img-thumbnail border-0">
 					<img src="<%= campground.image %>">
@@ -27,7 +27,7 @@
 					<a class="btn btn-outline-info btn-sm mt-1" href="/campgrounds/<%= campground._id %>" role="button">More Info</a>
 				</p>
 			</div>
-		<% }); %>
+		<% } %> 
 	</div>
 </div>
 

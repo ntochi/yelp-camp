@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 const Comment = require('./comment');
 
 const campgroundSchema = new mongoose.Schema({
-	name: String,
+	title: String,
 	price: String,
 	image: String,
 	description: String,
+	location: String,
 	author: {
 		id: {
 			type: mongoose.Schema.Types.ObjectId,
